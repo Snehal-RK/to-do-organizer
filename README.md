@@ -58,3 +58,8 @@ Thank you for reviewing this application.
 ### Dark Theme
 ![image](https://github.com/user-attachments/assets/da64c9fd-a53a-40b9-b363-7bff8b306097)
 
+### Mobile view (Light)
+![Image](https://github.com/user-attachments/assets/1db2aa8e-5219-496f-bca4-3e9f829a8354)
+
+### Mobile view (Dark)
+![Image](https://github.com/user-attachments/assets/64a04801-3d82-4f53-bb24-adc1cf3a434d)
