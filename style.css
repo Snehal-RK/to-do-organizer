@@ -1,0 +1,377 @@
+
+body{
+    margin: 0;
+    background: #F1F0E8;
+    height: 100vh;
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Aligns items vertically */
+    align-items: center; 
+    padding: 0 5%;
+}
+
+@media (min-width: 901px) {
+    body{
+        display: flex; /* Enables flexbox */
+        flex-direction: row; /* Aligns items horizontally */
+        justify-content: space-between; /* Centers horizontally */
+        align-items: center; 
+    }
+
+    h1{
+        font-size: 3rem;
+        margin-bottom: 2.5rem;
+        padding-bottom: 1.5rem;
+        border-bottom: #aab9cf solid 0.1rem;
+    }
+
+    #themeToggleBtn img{
+        width: 5rem; /* Adjust icon size */
+        height: 5rem; /* Adjust icon size */
+        transition: transform 0.3s ease; /* Smooth transition for rotation */
+    }
+}
+
+*{
+    font-family: 'Segoe UI', sans-serif !important;
+}
+
+#themeToggleBtn{
+    position: absolute;
+    cursor: pointer;
+    top: 1rem;
+    right: 1rem;
+    width: 3rem; /* Adjust icon size */
+    height: 3rem; /* Adjust icon size */
+    transition: transform 3s ease; /* Smooth transition for rotation */
+}
+
+/* Task input CSS */
+.container {
+    width: 40%; /* Adjust width */
+    margin: 0;
+}
+
+h1{
+    color: #89a8b2;
+    text-transform: uppercase;
+}
+
+.input-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+#taskInput{
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input::placeholder{
+    color: #e5e1da;
+    font-weight: bold;
+}
+
+#addTaskBtn{
+    padding: 1rem;
+    background-color: #89a8b2;
+    border: none;
+    border-radius: 5px;
+    color: #eeeeee;
+    cursor: pointer;
+}
+
+.filter-section{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    padding: 0.8rem 1.2rem;
+    margin-right: 0 0.2rem;
+    background-color: #F1F0E8;
+    border: solid 1px #222831;
+    border-radius: 5px;
+    color: #222831;
+    font-size: 1rem;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+.filter-section button.active {
+    background-color: #b3c8cf;
+    color: #222831;
+    border-color: #222831;
+    font-weight: bold; /* Make active button bold */
+}
+
+.filter-btn:hover {
+    color: #222831;
+    background-color: #b3c8cf;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Enhance shadow on hover */
+}
+
+@media (max-width: 600px) {
+    body{
+        display: flex;
+    }
+
+    .theme.toggle{
+        width: 100%;
+        height: 2rem;
+        background-color: red;
+    }
+
+    #themeToggleBtn{
+        top: 4.5%;
+        right: 9%;
+        padding: 0.3rem 0.5rem;
+    }
+
+    .nav-border {
+        width: 100%;
+        height: 2rem;
+        border-top: #b3c8cf solid 0.1rem;
+    }
+
+    h1{
+        font-size: 1.5rem;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+    }
+
+    .container {
+        border-bottom: #b3c8cf solid 0.1rem;
+    }
+
+    .filter-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+        margin-left: 0.3rem; 
+    }
+
+    .filter-section {
+        gap: 0.3rem;
+    }
+
+    .placeholder {
+        position: inherit;
+        top: 20%;
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+}
+/* END */
+
+li.completed span{
+    text-decoration: line-through;
+    color: #888;
+}
+
+.dragging{
+    opacity: 0.5;
+}
+
+/* Task list CSS */
+#taskList {
+    width: 40%; /* Adjust width */
+    list-style: none; /* Remove default list styling */
+    padding: 2rem;
+    margin: 0;
+    height: 70%;
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden;
+    border-radius: 10px; /* Rounded corners */
+}
+
+/* Placeholder message styles */
+.placeholder {
+    position: relative;
+    top: 35%;
+    font-size: 2.5rem;
+    color: #c9c9c973;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+/* Custom scrollbar styles */
+#taskList::-webkit-scrollbar {
+    width: 5px; /* Set the width of the scrollbar */
+    height: 5px; /* Set the height of the scrollbar */
+}
+
+#taskList::-webkit-scrollbar-thumb {
+    background-color: #555; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the thumb */
+}
+
+#taskList::-webkit-scrollbar-thumb:hover {
+    background-color: #222831; /* Darker color on hover */
+}
+
+#taskList::-webkit-scrollbar-track {
+    background: transparent; /* Transparent track */
+}
+
+/* Style for the list items */
+#taskList li {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff; /* White background for contrast */
+    text-transform: capitalize;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    width: 90%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add 3D shadow effect */
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+}
+
+/* Hover effect for list items */
+#taskList li:hover {
+    transform: translateY(-3px); /* Slight lift on hover */
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+#taskList li span {
+    flex-grow: 1; /* Allow text to take up available space */
+    margin-left: 10px; /* Add spacing between icon and text */
+    text-align: left;
+}
+
+/* Style for the icons */
+#taskList li img {
+    height: 20px; /* Set icon height */
+    margin-left : 10px; /* Add spacing around the icons */
+    vertical-align: middle; /* Align icons with text */
+}
+
+@media (max-width: 900px) {
+
+    .filter-section {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 0;
+    }
+
+    .nav-border {
+        width: 100%;
+        height: 2rem;
+        border-top: rgba(229, 225, 218, 0.5) solid 0.2rem;
+    }
+
+    .container {
+        width: 90%; /* Adjust width for smaller screens */
+        margin-top: 2rem; /* Add spacing above the container */
+        margin-bottom: 1rem; /* Add spacing below the container */
+        border-bottom: rgba(229, 225, 218, 0.5) solid 0.2rem;
+    }
+
+    #taskList {
+        width: 90%; /* Adjust width for smaller screens */
+        height: auto; /* Allow height to adjust dynamically */
+        padding: 1rem; /* Adjust padding */
+    }
+
+    .placeholder {
+        position: relative;
+        top: 0;
+        font-size: 1.5rem; /* Adjust font size for smaller screens */
+    }
+}
+
+/* END */
+
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+body.dark-theme .input-section input[type="text"] {
+    border-color: #666;
+    background-color: #555;
+    color: #eee;
+}
+
+body.dark-theme .input-section button {
+    background-color: #5cb85c;
+    color: white;
+}
+
+body.dark-theme .filter-section button {
+    background-color: #555;
+    color: #eee;
+    border-color: #666;
+}
+
+body.dark-theme .filter-section button:hover {
+    background-color: #747474;
+    color: #fff;
+}
+
+body.dark-theme .filter-section button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+body.dark-theme #taskList li {
+    border-bottom-color: #555;
+    background-color: #a5a5a5;
+    color: #222831;
+}
+
+body.dark-theme #taskList li.completed span {
+    color: #727272;
+}
+
+.theme-toggle button {
+    /* Basic styling for the button */
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle button.dark-mode {
+    background-color: #333;
+    color: #f4f4f4;
+    border-color: #555;
+}
+
+/* Footer styles */
+.app-footer {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    background-color: #f1f0e8; /* Match the app's background */
+    color: #555; /* Subtle text color */
+    font-size: 0.9rem;
+    border-top: 1px solid #ccc; /* Add a subtle border at the top */
+    position: fixed; /* Keep the footer at the bottom */
+    bottom: 0;
+    left: 0;
+}
+
+body.dark-theme .app-footer {
+    background-color: #333; /* Dark background for the footer */
+    color: #f4f4f4; /* Light text color for contrast */
+    border-top: 1px solid #555; /* Subtle border for separation */
+}

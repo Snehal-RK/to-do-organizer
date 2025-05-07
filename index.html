@@ -1,0 +1,43 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta http-equiv="refresh" content="5"> -->
+    <title>To Do Organiser</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <img id="themeToggleBtn" src="icons/sun.png" alt="Toggle Theme" >
+
+        <h1> To Do Organizer </h1>
+
+        <div class="nav-border"></div>
+
+        <!-- Input Section -->
+        <div class="input-section">
+            <input type="text" id="taskInput" placeholder="Add new task..">
+            <button id="addTaskBtn"> Add </button>
+        </div>
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <button class="filter-btn Active" data-filter="all"> All </button>
+            <button class="filter-btn" data-filter="pending"> Pending </button>
+            <button class="filter-btn" data-filter="completed"> Completed </button>
+        </div>
+    </div>
+
+    <ul id="taskList">
+        <p id="placeholderMessage" class="placeholder">No tasks available <br> Create One..</p>
+    </ul>
+
+    <footer class="app-footer">
+        <p>To Do Organizer &copy; 2025. Built to help you stay organized and productive.</p>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
